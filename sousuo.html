@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+
+<head></head>
+
+<body>
+
+<FORM name="f_g1" onsubmit="return(s_1())" class="navbar-form navbar-left" role="search">
+
+        <div class="form-group">
+
+          <input  onblur="if (value ==''){value=''}" onfocus="this.select()" name="key" type="text" class="form-control" placeholder="Google搜索">
+
+        </div>
+
+        <button type="submit" class="btn btn-default" onclick="s_1()">谷歌</button>
+
+      </form>
+
+
+
+<FORM name="f_g2" onsubmit="return(s_2())" class="navbar-form navbar-left" role="search">
+
+        <div class="form-group">
+
+          <input  onblur="if (value ==''){value=''}" onfocus="this.select()" name="key" type="text" class="form-control" placeholder="Bing搜索">
+
+        </div>
+
+        <button type="submit" class="btn btn-default" onclick="s_5()">必应</button>
+
+      </form>
+
+<script type="text/javascript">
+
+function s_1()
+
+{window.open("http://www.google.com/search?hl=zh-CN&q="+encodeURI(f_g1.key.value));return false;};
+
+
+function s_2()
+
+{window.open("http://cn.bing.com/search?q="+encodeURI(f_g2.key.value));return false;};
+
+
+
+</script>
+
+<body>
+
+</html>

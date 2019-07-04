@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<script type="text/javascript">
+
+        $(function ()
+        {
+            //回到顶部、底部按钮代码
+            $("#updown").css("top", window.screen.availHeight / 2 - 100 + "px");
+            $(window).scroll(function ()
+            {
+                if ($(window).scrollTop() >= 100)
+                {
+                    $('#updown').fadeIn(300);
+                } else
+                {
+                    $('#updown').fadeOut(300);
+                }
+            });
+            $('#updown .up').click(function () { $('html,body').animate({ scrollTop: '0px' }, 800); });
+            $('#updown .down').click(function () { $('html,body').animate({ scrollTop: document.body.clientHeight + 'px' }, 800); });
+        });
+</script>
+#updown
+{
+    _top: expression(eval((document.compatMode&&document.compatMode=="CSS1Compat")?documentElement.scrollTop+documentElement.clientHeight-this.clientHeight-1:document.body.scrollTop+document.body.clientHeight-this.clientHeight-1));
+    position: fixed;
+    _position: absolute;
+    top: 200px;
+    right: 30px;
+    display: none;
+}
+
+    #updown span
+    {
+        cursor: pointer;
+        width: 48px;
+        height: 50px;
+        display: block;
+    }
+
+    #updown .up
+    {
+        background: url(../updown.png) no-repeat;
+    }
+
+        #updown .up:hover
+        {
+            background: url(../updown.png) top right no-repeat;
+        }
+
+    #updown .down
+    {
+        background: url(../updown.png) bottom left no-repeat;
+    }
+
+        #updown .down:hover
+        {
+            background: url(../updown.png) bottom right no-repeat;
+        }
+
+
+</head>
+<body>
+
+<h1>我的第一个标题</h1>
+<p>我的第一个段落。</p>
+
+</body>
+</html>

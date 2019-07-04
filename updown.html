@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+<script type="text/javascript">
+
+        $(function ()
+        {
+            //回到顶部、底部按钮代码
+            $("#updown").css("top", window.screen.availHeight / 2 - 100 + "px");
+            $(window).scroll(function ()
+            {
+                if ($(window).scrollTop() >= 100)
+                {
+                    $('#updown').fadeIn(300);
+                } else
+                {
+                    $('#updown').fadeOut(300);
+                }
+            });
+            $('#updown .up').click(function () { $('html,body').animate({ scrollTop: '0px' }, 800); });
+            $('#updown .down').click(function () { $('html,body').animate({ scrollTop: document.body.clientHeight + 'px' }, 800); });
+        });
+</script>
+<script>
+#updown
+{
+    _top: expression(eval((document.compatMode&&document.compatMode=="CSS1Compat")?documentElement.scrollTop+documentElement.clientHeight-this.clientHeight-1:document.body.scrollTop+document.body.clientHeight-this.clientHeight-1));
+    position: fixed;
+    _position: absolute;
+    top: 200px;
+    right: 30px;
+    display: none;
+}
+
+    #updown span
+    {
+        cursor: pointer;
+        width: 48px;
+        height: 50px;
+        display: block;
+    }
+
+    #updown .up
+    {
+        background: url(./stulip_files/up.png) no-repeat;
+    }
+
+        #updown .up:hover
+        {
+            background: url(./stulip_files/up.png) top right no-repeat;
+        }
+
+    #updown .down
+    {
+        background: url(./stulip_files/down.png) bottom left no-repeat;
+    }
+
+        #updown .down:hover
+        {
+            background: url(./stulip_files/down.png) bottom right no-repeat;
+        }
+
+</script>
+    <script type="text/javascript">
+        function NextPage() {
+            var objNext = document.getElementById("<%=btnNext.ClientID %>");
+            if (objNext.disabled == true) {
+                alert("已是最后一张。");
+                window.close();
+            }
+            else
+                objNext.click();
+        }
+        function GoToBottom() {
+            window.scrollTo(0, 99999);
+            return false;
+        }
+    </script>
+	 <script type="text/javascript">
+	function pageScroll(){
+//把内容滚动指定的像素数（第一个参数是向右滚动的像素数，第二个参数是向下滚动的像素数）
+    window.scrollBy(0,-100);
+//延时递归调用，模拟滚动向上效果
+    scrolldelay = setTimeout('pageScroll()',100);
+//获取scrollTop值，声明了DTD的标准网页取document.documentElement.scrollTop，否则取document.body.scrollTop；因为二者只有一个会生效，另一个就恒为0，所以取和值可以得到网页的真正的scrollTop值
+    var sTop=document.documentElement.scrollTop+document.body.scrollTop;
+//判断当页面到达顶部，取消延时代码（否则页面滚动到顶部会无法再向下正常浏览页面）
+    if(sTop==0) clearTimeout(scrolldelay);
+}
+	</script>
+	
+<style type="text/css">
+#divPanel{position:fixed;top:50px;right:250px;width:20px;height:650px; background-color:#FBDBE6;cursor:pointer;padding:0;font-size:12px;text-align:center;}
+        #divNext{height:580px;padding-top:10px;background-color:#FFDFF7;}
+        #divGoToBottom{height:60px;margin-top:5px; background-color:#FBaaaa;padding-top:10px;}
+    </style>
+<style type="text/css">
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0}
+fieldset,img{border:0;}
+:focus{outline:0;}
+ol,ul{list-style:none;list-style-position:outside;}
+table{border-collapse:collapse;border-spacing:0;}
+address,caption,cite,code,dfn,em,i,strong,th,var,optgroup{font-style:normal;font-weight:normal;}
+body,button,input,select,textarea{font:12px/1.5 微软雅黑,arial,sans-serif;}
+button,input,select,textarea,h1,h2,h3,h4,h5,h6{font-size:100%;}
+body{color:#333;min-width: 1120px;}
+a{color:#333;text-decoration:none;}
+a:hover{color:#f60;text-decoration:underline;}
+a:hover em,a:hover i,a:hover span{cursor:pointer;}
+.cf:after{content:".";display:block;height:0;clear:both;visibility:hidden;}
+.cf{*zoom:1;}
+
+/*** guide ***/
+.guide{width:60px;margin-left:680px;position:fixed;left:50%;bottom:80px;_position:absolute;_top:expression(documentElement.scrollTop+documentElement.clientHeight - this.clientHeight - 134+'px');display:block;}
+.guide a{display:block;width:60px;height:50px;background:url(images/sprite_v2.png) no-repeat;margin-top:10px;text-decoration:none;font:16px/50px "Microsoft YaHei";text-align:center;color:#fff;border-radius:2px;}
+.guide a span{display:none;text-align:center;}
+.guide a:hover{text-decoration:none;background-color:#39F;color:#fff;}
+.guide a:hover span{display:block;width:60px;background:#39F}
+.guide .find{background-position:-84px -236px;}
+.guide .report{background-position:-146px -236px;}
+.guide .edit{background-position:-83px -185px;}
+.guide .top{background-position:-145px -185px;}
+</style>
+</head>
+<body>
+<h1>我的第一个标题</h1>
+<p>我的第一个段落。</p>
+<h1>我的第一个标题</h1>
+<p>我的第一个段落。</p>
+<h1>我的第一个标题</h1>
+<p>我的第一个段落。</p>
+<h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<a onclick="pageScroll()">返回顶部</a>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p><h1>我的第一个标题</h1>
+<p>我的第一个段落。</p>
+<div id="updown"><span class="up"></span><span class="down"></span></div>
+    <div id="divPanel">
+        <div id="divNext" onclick="NextPage()">下一个</div>
+        <div id="divGoToBottom" onclick="GoToBottom()">到底部</div>
+    </div>
+<div style="height:1000px;"></div>
+<script src="/demos/googlegg.js"></script>
+<div class="guide">
+	<div class="guide-wrap">
+		<a href="#" class="edit" title="发新帖"><span>发新帖</span></a>
+		<a href="#" class="find" title="找论坛"><span>找论坛</span></a>
+		<a href="#" class="report" title="反馈"><span>反馈</span></a>
+		<a href="javascript:window.scrollTo(0,0)" class="top" title="回顶部"><span>回顶部</span></a>
+	</div>
+</div>
+
+import { scrollAnimation } from '../../static/js/utils.js';
+
+const currentY = document.documentElement.scrollTop || document.body.scrollTop
+scrollAnimation(currentY, 0)
+
+<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
+</body>
+</html>

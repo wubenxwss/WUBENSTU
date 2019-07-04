@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>猜数字游戏</title> 
+<script>
+function getTime() {
+
+    var dateObj = new Date();
+
+    var year = dateObj.getFullYear();//年
+    var month = dateObj.getMonth()+1;//月  (注意：月份+1)
+    var date = dateObj.getDate();//日
+    var day = dateObj.getDay();
+    var weeks = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+    var week = weeks[day];//根据day值，获取星期数组中的星期数。
+    var hours = dateObj.getHours();//小时
+    var minutes = dateObj.getMinutes();//分钟
+    var seconds = dateObj.getSeconds();//秒
+
+    if(month<10){
+        month = "0"+month;
+    }
+    if(date<10){
+        date = "0"+date;
+    }
+    if(hours<10){
+        hours = "0"+hours;
+    }
+    if(minutes<10){
+        minutes = "0"+minutes;
+    }
+    if(seconds<10){
+        seconds = "0"+seconds;
+    }
+
+    var newDate = year+"年"+month+"月"+date+"日"+hours+":"+minutes+":"+seconds+"&nbsp &nbsp"+week;
+    document.getElementById("date2").innerHTML = "" + newDate;//在div中写入时间
+    setTimeout('getTime()', 500);//每隔500ms执行一次getTime()
+}</script>
+<script>
+function randomFrom(lowerValue,upperValue)
+{
+    return Math.floor(Math.random() * (upperValue - lowerValue + 1) + lowerValue);
+}
+y=randomFrom(1,10);//开启网页就产生了随机数
+cout=1;
+times=0
+function restart()
+{
+	y=randomFrom(1,10);//肯定要重新产生随机数
+	alert("游戏重启成功")
+	document.getElementById("demo").value='';//清空输入框
+	cout=0
+	times=0
+	document.getElementById("couter").innerHTML="得分："+cout;
+	
+}
+function showout()
+{
+	alert("这就放弃了?弱爆了！数字是:" +y + "呀")//传递变量，合并文本输出
+	cout=0;
+	times=0;
+	times=0
+	document.getElementById("couter").innerHTML="得分："+cout;
+}
+function myFunction()//判断
+{
+	var x=document.getElementById("demo").value;	
+	if(x==""||isNaN(x))
+	{
+		//alert("请输入阿拉伯数字哦");
+		document.getElementById("torf").innerHTML="请输入阿拉伯数字哦";
+	}
+	else
+	{
+		if(x<y)
+		{
+			//alert("输入的数字小了");
+			times=times+1
+			document.getElementById("torf").innerHTML="输入的数字小了，您输入了"+times+"次";
+			
+		}
+		else if(x>y)
+		{
+			//alert("输入的数字大了");
+			times=times+1
+			document.getElementById("torf").innerHTML="输入的数字大了，您输入了"+times+"次";
+		}
+		else
+		{
+			//alert("呀呀呀居然猜对了，再来，我就不信了，嘤嘤嘤")
+			y=randomFrom(1,10);//猜对了再来呗
+			document.getElementById("demo").value='';//清空输入框
+			cout=cout+1;
+			times=0
+			document.getElementById("couter").innerHTML="得分："+cout;
+			document.getElementById("torf").innerHTML="呀呀呀居然猜对了，再来，我就不信了，嘤嘤嘤";
+		}
+	}
+}
+</script>
+<script type="text/jscript">
+
+function airport(c){
+
+    c.style.color="#ffffff";    
+
+}
+
+function airporthover(c){
+
+    c.style.color="#666666";
+
+    
+
+}
+
+</script>
+
+<script type="text/javascript">
+function Myselect_txt(){
+ if (document.form1.title.focus){
+ document.form1.title.select();}
+}
+function Myselect_txtarea(){
+ if (document.form1.content.focus){
+ document.form1.content.select();}
+}
+</script>
+
+
+<style>
+
+
+
+
+
+
+body
+{
+background-image:url('./stulip_files/ironback.jpg');
+background-repeat:no-repeat;
+background-position:top;
+background-attachment:scroll;
+
+}
+h1
+{
+	color:orange;
+	text-align:center;
+}
+p
+{
+	font-family:"Times New Roman";
+	font-size:20px;
+	font-family:arial;/*字体*/
+	text-align:center;
+	color:#74b49b;
+}
+#div1 {
+    background-color: #ffffd2;
+    width: 250px;
+    border-left: 14px;
+    padding: 10px;
+    margin: 10px;	
+	border-left-style:solid;
+	border-color:#98bf21
+	
+}
+#div2
+{	
+
+	background-color: #ffffd2;
+}
+button {
+	background-color: #ffffff;
+	border:0px solid #add2c9;
+	width:60px;
+	font-size:28px;
+	color:#343434;
+}
+#rcorners1 {
+    border-radius: 5px;
+    background: #add2c9;
+    padding: 0px; 
+    width:80px;
+
+	
+}
+#rcorners2 {
+    border-radius: 5px;
+    background: #c56868;
+    padding: 0px; 
+    width:80px;
+	hover background:#ffffff;
+	
+}
+#showspace  button:hover{ background:#c56868;}
+
+
+</style>
+<body onload="getTime()"><!--网页打开的时候调用时间 -->
+<ol>
+<li id="div1"><div id="date2"></div></li> 
+<li id="div1"><div id="couter">得分：0</div></li>
+</ol>
+
+<h1>欢迎来到猜数字游戏！</h1>
+<p>输入1-10的数字</p>
+ <form name="form1">
+<p><input name="title" id="demo" type="text" onClick="Myselect_txt()">
+<button id="rcorners1" type="button" onclick="myFunction()" onmouseover="airport(this)" onmouseout="airporthover(this)">确定</button></p>
+<ol><div id="div2"><p id="torf">加油</p></div></ol>
+<p><button id="rcorners1"  type="button" onclick="restart()" onmouseover="airport(this)" onmouseout="airporthover(this)">重启</button>  
+<button id="rcorners2"  type="button" onclick="showout()" onmouseover="airport(this)" onmouseout="airporthover(this)">放弃</button></p>
+</form>
+<div id="main">  
+<div id="show_time0" style="">
+<script>
+//这里就一句话就可以显示时间，但不是我想要的最理想结果
+ //setInterval("show_time0.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);  
+</script>
+ 
+  
+<div id="main">  
+<div id="show_time0" style="">
+<script>
+//这里就一句话就可以显示时间，但不是我想要的最理想结果
+ //setInterval("show_time0.innerHTML=new Date().toLocaleString()+' 星期'+'日一二三四五六'.charAt(new Date().getDay());",1000);  
+</script>
+ 
+ 
+</div>
+	<div id="show_time">  
+		<script>  
+	//这里代码多了几行，但是不会延迟显示，速度比较好，格式可以自定义，是理想的时间显示
+	setInterval("fun(show_time)",1);
+	function fun(timeID){ 
+var date = new Date();  //创建对象  
+var y = date.getFullYear();     //获取年份  
+var m =date.getMonth()+1;   //获取月份  返回0-11  
+var d = date.getDate(); // 获取日  
+var w = date.getDay();   //获取星期几  返回0-6   (0=星期天) 
+var ww = ' 星期'+'日一二三四五六'.charAt(new Date().getDay()) ;//星期几
+var h = date.getHours();  //时
+var minute = date.getMinutes()  //分
+var s = date.getSeconds(); //秒
+var sss = date.getMilliseconds() ; //毫秒
+if(m<10){
+m = "0"+m;
+}
+if(d<10){
+d = "0"+d;
+}
+if(h<10){
+h = "0"+h;
+}
+ 
+ 
+if(minute<10){
+minute = "0"+minute;
+}
+ 
+ 
+if(s<10){
+s = "0"+s;
+}
+ 
+ 
+if(sss<10){
+sss = "00"+sss;
+}else if(sss<100){
+sss = "0"+sss;
+}
+ 
+ 
+document.getElementById(timeID.id).innerHTML =  y+"年"+m+"月"+d+"日"+h+":"+minute+":"+s+""+"  "+ww;
+//document.write(y+"-"+m+"-"+d+"   "+h+":"+minute+":"+s);  
+  }
+</script>  
+</div>  
+ 
+ 
+ 
+ 
+ 
+ 
+</div>  
+ 
+ 
+ 
+ 
+</div>  
+         
+</body>
+</html>
